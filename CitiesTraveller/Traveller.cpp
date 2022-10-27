@@ -60,10 +60,21 @@ Citie* Traveller::FindNearestCitieFromCurrent()
 	{
 		for (size_t j = 0; j < currentCitie->roadsLinkTo.at(i)->citiesLinkTo.size(); j++)//Pour toutes les villes liés
 		{
+			/*
+			if (currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j) == beginCitie)
+			{
+				if (i != currentCitie->roadsLinkTo.size() - 1)
+				{
+					nextCitie = currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j);
+				}
+			}*/
 			if (!CheckIfAlreadyGo(currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j)))
 			{
 				nextCitie = currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j);
+
 			}
+			
+
 		}
 
 
