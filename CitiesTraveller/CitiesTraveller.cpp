@@ -13,6 +13,9 @@ int main()
 	cities.push_back({ "D" });
 	cities.push_back({ "E" });
 
+	cities.push_back({ "F" });
+
+
 	//Les connections se font dans les deux sens
 	cities.at(0).ConnectToCitie(&cities.at(1), 2);	//Connection A-B
 	cities.at(0).ConnectToCitie(&cities.at(2),2);	//Connection A-C
@@ -26,7 +29,11 @@ int main()
 	cities.at(1).ConnectToCitie(&cities.at(4), 1);	//Connection B-E
 	cities.at(2).ConnectToCitie(&cities.at(3), 1);	//Connection C-D
 
+	cities.at(3).ConnectToCitie(&cities.at(5), 2);	//Connection D-F
+	cities.at(4).ConnectToCitie(&cities.at(5), 2);	//Connection E-D
+
 	traveller.StartAtCitie(&cities.at(0));
-	traveller.MoveToCity(traveller.FindNearestCitieFromCurrent());
+	//traveller.MoveToCity(traveller.FindNearestCitieFromCurrent());
+	traveller.FindBestWay(cities);
 	
 }

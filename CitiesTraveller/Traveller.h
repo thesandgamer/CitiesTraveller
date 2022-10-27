@@ -16,9 +16,13 @@ public:
 
 	void GoTo(Road* road);
 	void MoveToCity(Citie* citie);
-	void CheckIfAlreadyGo(Citie* citie);
+	bool CheckIfAlreadyGo(Citie* citie);
 
-	
+	void FindBestWay(std::vector<Citie> allCities);
+
+	std::vector<Citie*> invalidCities;
+
+	bool FutureRoadAreBlocked(std::vector<Road*> roads);
 	
 };
 
