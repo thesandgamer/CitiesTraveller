@@ -29,11 +29,13 @@ int main()
 	cities.at(1).ConnectToCitie(&cities.at(4), 1);	//Connection B-E
 	cities.at(2).ConnectToCitie(&cities.at(3), 1);	//Connection C-D
 
+
 	cities.at(3).ConnectToCitie(&cities.at(5), 2);	//Connection D-F
 	cities.at(4).ConnectToCitie(&cities.at(5), 2);	//Connection E-D
 
-	traveller.StartAtCitie(&cities.at(0));
-	//traveller.MoveToCity(traveller.FindNearestCitieFromCurrent());
+
+
+	traveller.StartAtCitie(&cities.at(1));	//Le voyageur commence à la position X
 	traveller.FindBestWay(cities);
 	
 }

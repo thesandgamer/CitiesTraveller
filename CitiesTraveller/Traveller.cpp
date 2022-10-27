@@ -73,17 +73,6 @@ Citie* Traveller::FindNearestCitieFromCurrent()
 	return nextCitie;
 }
 
-bool Traveller::FutureRoadAreBlocked(std::vector<Road*> roads)
-{
-	
-	return false;
-}
-
-
-void Traveller::GoTo(Road* road)
-{
-}
-
 void Traveller::MoveToCity(Citie* citie)
 {
 	currentCitie = citie;

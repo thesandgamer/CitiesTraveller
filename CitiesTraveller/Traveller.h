@@ -14,7 +14,6 @@ public:
 
 	Citie* FindNearestCitieFromCurrent();
 
-	void GoTo(Road* road);
 	void MoveToCity(Citie* citie);
 	bool CheckIfAlreadyGo(Citie* citie);
 
@@ -22,7 +21,6 @@ public:
 
 	std::vector<Citie*> invalidCities;
 
-	bool FutureRoadAreBlocked(std::vector<Road*> roads);
 	
 };
 
