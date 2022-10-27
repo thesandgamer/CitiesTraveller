@@ -18,5 +18,25 @@
     <ClCompile Include="CitiesTraveller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Citie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Traveller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Citie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Traveller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
