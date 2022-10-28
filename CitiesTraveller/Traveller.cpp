@@ -54,13 +54,87 @@ Citie* Traveller::FindNearestCitieFromCurrent()
 		currentCitie = beginCitie;
 		FindNearestCitieFromCurrent();
 	}*/
-	//return currentCitie->roadsLinkTo.at(citieNearest)->citiesLinkTo.at(1);
+
+	//Test for shortest past : Block beaucause d'ont check too on the future path
+	/*
+	int c = 0;//Current road
+	float minDistance = 100000;
+
+	
+	for (size_t i = 0; i < currentCitie->roadsLinkTo.size(); i++)	//Pour tout les chemins
+	{
+		for (size_t j = 0; j < currentCitie->roadsLinkTo.at(i)->citiesLinkTo.size(); j++)//Pour toutes les villes liés à la route
+		{
+			Citie* citieToCheck = currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j);
+			if (citieToCheck == beginCitie)//Check si le prochain est le même que celui du début
+			{
+				if (visitedCities.size() == allCitiesToVisit->size() - 1)//Check si on check pour la dernière ville
+				{
+					if (!CheckIfAlreadyGo(citieToCheck))
+					{
+						if (currentCitie->roadsLinkTo.at(i)->distance < minDistance)//Si la route à une plus petite distance
+						{
+							c = i;
+							minDistance = currentCitie->roadsLinkTo.at(i)->distance;
+						}
+
+					}
+
+				}
+
+			}
+			else if (!CheckIfAlreadyGo(citieToCheck))
+			{
+				if (currentCitie->roadsLinkTo.at(i)->distance < minDistance)//Si la route à une plus petite distance
+				{
+					c = i;
+					minDistance = currentCitie->roadsLinkTo.at(i)->distance;
+				}
+
+			}
+
+			
+		}
+		
+	}
+	Citie* nextCitie = nullptr;
+	
+	for (size_t j = 0; j < currentCitie->roadsLinkTo.at(c)->citiesLinkTo.size(); j++)//Pour toutes les villes liés à la route
+	{
+		Citie* citieToCheck = currentCitie->roadsLinkTo.at(c)->citiesLinkTo.at(j);
+		if (citieToCheck == beginCitie)//Check si le prochain est le même que celui du début
+		{
+			if (visitedCities.size() == allCitiesToVisit->size() - 1)//Check si on check pour la dernière ville
+			{
+				if (!CheckIfAlreadyGo(citieToCheck))
+				{
+					nextCitie = citieToCheck;
+					break;
+
+				}
+
+			}
+
+		}
+		else if (!CheckIfAlreadyGo(citieToCheck))
+		{
+			nextCitie = citieToCheck;
+			break;
+
+		}
+
+
+	}
+
+
+	return nextCitie;*/ 
+
+	
 	Citie* nextCitie = nullptr;
 	for (size_t i = 0; i < currentCitie->roadsLinkTo.size(); i++)	//Pour tout les chemins
 	{
 		for (size_t j = 0; j < currentCitie->roadsLinkTo.at(i)->citiesLinkTo.size(); j++)//Pour toutes les villes liés
 		{
-
 			if (currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j) == beginCitie)//Check si le prochain est le même que celui du début
 			{
 				if (visitedCities.size() == allCitiesToVisit->size() - 1)//Check si on check pour la dernière ville
@@ -87,8 +161,6 @@ Citie* Traveller::FindNearestCitieFromCurrent()
 
 
 	}
-
-
 	return nextCitie;
 }
 
@@ -117,6 +189,12 @@ void Traveller::FindBestWay(std::vector<Citie>* allCities)
 	while (visitedCities.size() != allCities->size())	//Tant qu'il n'a pas visité toutes les villes
 	{
 		MoveToCity(FindNearestCitieFromCurrent());
+	}	
+	std::cout << " Path find: ";
+	std::cout << "Start of path: " << beginCitie->citieName << std::endl;
+	for (size_t i = 0; i < visitedCities.size(); i++)
+	{
+		std::cout << "Citie: " << visitedCities.at(i)->citieName<<" | ";
 	}
 	std::cout << std::endl;
 
