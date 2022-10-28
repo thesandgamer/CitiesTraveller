@@ -26,8 +26,8 @@ int main()
 	cities.at(2).ConnectToCitie(&cities.at(4), 3);	//Connection C-E
 	cities.at(3).ConnectToCitie(&cities.at(4), 3);	//Connection D-E
 
-	cities.at(1).ConnectToCitie(&cities.at(4), 1);	//Connection B-E
-	cities.at(2).ConnectToCitie(&cities.at(3), 1);	//Connection C-D
+	cities.at(1).ConnectToCitie(&cities.at(4), 4);	//Connection B-E
+	cities.at(2).ConnectToCitie(&cities.at(3), 4);	//Connection C-D
 
 
 	cities.at(3).ConnectToCitie(&cities.at(5), 2);	//Connection D-F
@@ -35,7 +35,7 @@ int main()
 
 
 
-	traveller.StartAtCitie(&cities.at(1));	//Le voyageur commence à la position X
-	traveller.FindBestWay(cities);
+	traveller.StartAtCitie(&cities.at(0));	//Le voyageur commence à la position X
+	traveller.FindBestWay(&cities);
 	
 }

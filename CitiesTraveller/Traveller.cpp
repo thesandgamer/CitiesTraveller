@@ -60,17 +60,25 @@ Citie* Traveller::FindNearestCitieFromCurrent()
 	{
 		for (size_t j = 0; j < currentCitie->roadsLinkTo.at(i)->citiesLinkTo.size(); j++)//Pour toutes les villes liés
 		{
-			/*
-			if (currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j) == beginCitie)
+
+			if (currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j) == beginCitie)//Check si le prochain est le même que celui du début
 			{
-				if (i != currentCitie->roadsLinkTo.size() - 1)
+				if (visitedCities.size() == allCitiesToVisit->size() - 1)//Check si on check pour la dernière ville
 				{
-					nextCitie = currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j);
+					if (!CheckIfAlreadyGo(currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j)))
+					{
+						nextCitie = currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j);
+						break;
+
+					}
+		
 				}
-			}*/
-			if (!CheckIfAlreadyGo(currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j)))
+					
+			}	
+			else if (!CheckIfAlreadyGo(currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j)))
 			{
 				nextCitie = currentCitie->roadsLinkTo.at(i)->citiesLinkTo.at(j);
+				break;
 
 			}
 			
@@ -103,9 +111,10 @@ bool Traveller::CheckIfAlreadyGo(Citie* citie)
 	}
 }
 
-void Traveller::FindBestWay(std::vector<Citie> allCities)
+void Traveller::FindBestWay(std::vector<Citie>* allCities)
 {
-	while (visitedCities.size() != allCities.size())
+	allCitiesToVisit = allCities;
+	while (visitedCities.size() != allCities->size())	//Tant qu'il n'a pas visité toutes les villes
 	{
 		MoveToCity(FindNearestCitieFromCurrent());
 	}

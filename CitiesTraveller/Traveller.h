@@ -17,9 +17,9 @@ public:
 	void MoveToCity(Citie* citie);
 	bool CheckIfAlreadyGo(Citie* citie);
 
-	void FindBestWay(std::vector<Citie> allCities);
+	void FindBestWay(std::vector<Citie>* allCities);
 
-	std::vector<Citie*> invalidCities;
+	std::vector<Citie>* allCitiesToVisit;
 
 	
 };
